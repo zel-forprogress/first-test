@@ -1,17 +1,27 @@
-research_task:
+concert_research_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
+    搜集下周（从今天开始7天内）在香港举行的所有演唱会信息。
+    需要包含以下信息：
+    - 演出名称和艺术家
+    - 演出日期和时间
+    - 演出地点（场馆名称和地址）
+    - 票价范围
+    - 购票渠道（官方网站或票务平台链接）
+    确保信息的准确性和时效性。
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    一份包含至少5-10场演唱会的列表，每场演唱会包含上述所有必需信息。
+    以清晰的格式呈现，便于后续整理。
+  agent: concert_researcher
 
-reporting_task:
+concert_organizing_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    将搜集到的演唱会信息整理成结构化的报告。
+    按时间顺序排列，为每场演唱会创建清晰的条目。
+    添加一个简短的摘要，突出最重要的演唱会或值得关注的信息。
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    一份格式良好的markdown报告，包含：
+    - 执行摘要（简要概述下周香港演唱会情况）
+    - 按日期排序的演唱会详细列表
+    - 每场演出的完整信息（名称、艺术家、日期、时间、地点、票价、购票链接）
+    格式为markdown，不使用代码块（```）。
+  agent: concert_info_organizer

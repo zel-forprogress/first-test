@@ -18,15 +18,14 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
+        'current_year': str(datetime.now().year),
+        'current_date': datetime.now().strftime('%Y-%m-%d')
     }
 
     try:
         FirstTest().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
-
 
 def train():
     """
