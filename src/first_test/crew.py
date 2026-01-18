@@ -20,34 +20,31 @@ class FirstTest():
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
     @agent
-    def researcher(self) -> Agent:
+    def concert_researcher(self) -> Agent:
         return Agent(
-            config=self.agents_config['researcher'], # type: ignore[index]
+            config=self.agents_config['concert_researcher'],
             verbose=True
         )
-
     @agent
-    def reporting_analyst(self) -> Agent:
+    def concert_info_organizer(self) -> Agent:
         return Agent(
-            config=self.agents_config['reporting_analyst'], # type: ignore[index]
+            config=self.agents_config['concert_info_organizer'],
             verbose=True
         )
 
-    # To learn more about structured task outputs,
-    # task dependencies, and task callbacks, check out the documentation:
-    # https://docs.crewai.com/concepts/tasks#overview-of-a-task
     @task
-    def research_task(self) -> Task:
+    def concert_research_task(self) -> Task:
         return Task(
-            config=self.tasks_config['research_task'], # type: ignore[index]
+            config=self.tasks_config['concert_research_task'],
         )
 
     @task
-    def reporting_task(self) -> Task:
+    def concert_organizing_task(self) -> Task:
         return Task(
-            config=self.tasks_config['reporting_task'], # type: ignore[index]
+            config=self.tasks_config['concert_organizing_task'],
             output_file='report.md'
         )
+
 
     @crew
     def crew(self) -> Crew:
